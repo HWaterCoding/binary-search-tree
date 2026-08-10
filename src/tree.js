@@ -65,17 +65,36 @@ export default class Tree{
         return false;
     }
 
-    insert(value){
-        //FIRST CHECK IF THE VALUE ALREADY EXISTS. IF IT DOES. RETURN EARLY.
 
-        //loop through the tree. start at the root.
+    //rebuild the entire tree???
+    insert(value){
+        //Check if value already exists. If it does, return null.
+        if(this.includes(value)) return;
+
+        const newNode = new Node(value);
+
+        let currentNode = this.root;
+        
+        if(this.root === null){
+            this.root = newNode;
+        }
 
         //compare the "value" to the node being iterated on; if it's smaller, go left, if bigger, go right.
-
-        //continue until you find a "null" spot where the node can be placed.
-
-        //change that null value to the "value"
-
+        while(currentNode !== null){
+            if(value < currentNode.data){
+                if(currentNode.left === null){
+                    currentNode.left = newNode;
+                    return;
+                }
+                currentNode = currentNode.left;
+            } else if(value > currentNode.data){
+                if(currentNode.right === null){
+                    currentNode.left = newNode;
+                    return;
+                }
+                currentNode = currentNode.right;
+            }
+        }
     }
 
     deleteItem(value){
@@ -98,16 +117,3 @@ export default class Tree{
 
     }
 }
-
-
-//FUNCTION FOR GENERATING STRUCTURED LOOK AT TREE FORMAT IN CONSOLE
-
-// prettyPrint(node, prefix = '', isLeft = true){
-//     if (node === null || node === undefined) {
-//         return;
-//     }
-
-//     prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
-//     console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
-//     prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
-// };
