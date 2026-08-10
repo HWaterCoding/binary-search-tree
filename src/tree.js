@@ -49,11 +49,21 @@ export default class Tree{
 
     includes(value){
         //traverse through tree to find value
+        let currentNode = this.root;
+        
+        while(currentNode !== null){
+            if(value === currentNode.data){
+                return true;
+            }
+            if(value < currentNode.data){
+                currentNode = currentNode.left;
+            }
+            if(value > currentNode.data){
+                currentNode = currentNode.right;
+            }
+        }
 
-        //if value... true
-
-        //if no value... false
-
+        return false;
     }
 
     insert(value){
