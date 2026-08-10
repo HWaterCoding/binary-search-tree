@@ -57,8 +57,7 @@ export default class Tree{
             }
             if(value < currentNode.data){
                 currentNode = currentNode.left;
-            }
-            if(value > currentNode.data){
+            } else if(value > currentNode.data){
                 currentNode = currentNode.right;
             }
         }
