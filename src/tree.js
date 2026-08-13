@@ -102,7 +102,6 @@ export default class Tree {
     let currentNode = this.root;
     let lastNode;
 
-    //loop through the binary tree
     while (currentNode !== null) {
 
       if (value === currentNode.data) {
@@ -167,7 +166,6 @@ export default class Tree {
             successorNode = successorNode.left;
           }
 
-          //determine if node being deleted is left or right child or previous node
           currentNode.data = successorNode.data;
 
           //Is the successor the left child or right child of its parent?
@@ -193,5 +191,3 @@ export default class Tree {
     }
   }
 }
-
-//predecessor: left tree ---> go all the way right (highest value that's less than deleted Node)
