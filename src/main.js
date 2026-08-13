@@ -1,13 +1,14 @@
 //entry point
 import Tree from "./tree.js";
 
-// const binaryTree = new Tree([3, 3, 9, 6, 1, 4, 7, 10, 8, 5]);
-const smallTree = new Tree([3, 7]);
-smallTree.deleteItem(3);
-smallTree.deleteItem(7);
-smallTree.prettyPrint();
+const binaryTree = new Tree([3, 3, 9, 6, 1, 4, 7, 10, 8, 5]);
+// const smallTree = new Tree([3, 7]);
+// smallTree.deleteItem(3);
+// smallTree.deleteItem(7);
+// smallTree.prettyPrint();
+
 //includes()
-// console.log(binaryTree.includes(6));
+console.log(binaryTree.includes(6));
 // console.log(binaryTree.includes(17));
 
 //insert()
@@ -31,4 +32,4 @@ smallTree.prettyPrint();
 // console.log(binaryTree.root);
 
 //print entire tree
-// binaryTree.prettyPrint();
+binaryTree.prettyPrint();

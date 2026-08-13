@@ -190,4 +190,57 @@ export default class Tree {
       }
     }
   }
+
+
+  //next functions
+  levelOrderForEach(callback){
+    //do a level order traversal on the entire tree
+    //a level order traversal is starting at the root go level by level left to right
+    //for the binaryTree tree, 6, 3, 8, 1, 4, 7, 9, 5, 10, for example. Start at root and go level by level, left to right.
+
+    // (create empty array to act as queue)
+    // myQueue = [];
+    // (push root node into queue)
+    // myQueue.push(this.root);
+    // (Check the root for child nodes, and if they exist, add them to the queue)
+    // if(this.root.right !== null) {myQueue.push(this.root.right);
+    // if(this.root.left !== null) {myQueue.push(this.root.left)
+    // (Then take the root Node out of the queue)
+    // let node = myQueue.shift();
+    // (call callback function on this node)
+    // node.callback()
+  }
+
+
+  inOrderForEach(callback){
+
+  }
+
+  preOrderForEach(callback){
+
+  }
+
+  postOrderForEach(callback){
+
+  }
+
+
+  height(value){
+    //distance from leaf node
+  }
+
+  depth(value){
+    //distance from root node
+  }
+
+  //check if the tree is balancced
+  isBalanced(){
+    //check the depth of both subtrees and compare them?
+  }
+
+  //if the tree is not balanced, balance it.
+  rebalance(){
+    //create an array using a traversal method to gather values from the current tree
+    //re-call buildTree() function to rebuild the tree using the new array
+  }
 }
