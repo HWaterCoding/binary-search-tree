@@ -100,11 +100,8 @@ export default class Tree {
     if (!this.includes(value)) return;
 
     let currentNode = this.root;
-
-    //add case if deleting root node (IT DOESN'T HAVE A PARENT, SO NO LASTNODE VARIABLE)
-
     let lastNode;
-    
+
     //loop through the binary tree
     while (currentNode !== null) {
 
@@ -118,7 +115,6 @@ export default class Tree {
       }
 
       if (value === currentNode.data) {
-        //lastNode = 9 // currentNode = 10
 
         //if the node being removed has no children
         if (currentNode.right === null && currentNode.left === null) {
@@ -132,38 +128,55 @@ export default class Tree {
           }
         }
 
-        //lastNode = 8 // currentNode = 9
-
         //if the node being removed has 1 child
         else if (
           (currentNode.right === null && currentNode.left !== null) ||
           (currentNode.left === null && currentNode.right !== null)
         ) {
-            if(value > lastNode.data){
-              //append whichever node is !null
-              if(currentNode.left !== null){
-                lastNode.right = currentNode.left;
-                return;
-              } else if(currentNode.right !== null){
-                lastNode.right = currentNode.right;
-                return;
-              }
-            } else if(value < lastNode.data){
-              if(currentNode.left !== null){
-                lastNode.left = currentNode.left;
-                return;
-              } else if(currentNode.right !== null){
-                lastNode.left = currentNode.right;
-                return;
-              }
+          if (value > lastNode.data) {
+            //append whichever node is !null
+            if (currentNode.left !== null) {
+              lastNode.right = currentNode.left;
+            } else if (currentNode.right !== null) {
+              lastNode.right = currentNode.right;
             }
+          } else if (value < lastNode.data) {
+            if (currentNode.left !== null) {
+              lastNode.left = currentNode.left;
+            } else if (currentNode.right !== null) {
+              lastNode.left = currentNode.right;
+            }
+          }
+          return;
         }
 
         //if the node being removed has two children
         else if (currentNode.right !== null && currentNode.left !== null) {
-          //compare values 
+          //find successor: right tree ---> go all the way left (lowest value that's greater than deleted Node)
+          let successorNode = currentNode.right;
+          let parentOfSuccessor = currentNode;
+
+          while (successorNode.left !== null) {
+            parentOfSuccessor = successorNode;
+            successorNode = successorNode.left;
+          }
+
+          //determine if node being deleted is left or right child or previous node
+          currentNode.data = successorNode.data;
+
+          //Is the successor the left child or right child of its parent?
+          if(parentOfSuccessor.left === successorNode) {
+            //the successor is the left child of the parent
+            parentOfSuccessor.left = successorNode.right;
+          } else{
+            //the successor is the right child of the parent
+            parentOfSuccessor.right = successorNode.right;
+          }
+          return;
         }
       }
     }
   }
 }
+
+//predecessor: left tree ---> go all the way right (highest value that's less than deleted Node)
