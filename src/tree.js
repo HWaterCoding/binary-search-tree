@@ -102,17 +102,12 @@ export default class Tree {
     let currentNode = this.root;
     let lastNode;
 
+    if (value === this.root.data) {
+      //add case if deleting root node (IT DOESN'T HAVE A PARENT, SO NO LASTNODE VARIABLE)
+    }
+
     //loop through the binary tree
     while (currentNode !== null) {
-
-      //compare value to currentNode. If smaller, go left. If bigger, go right.
-      if (value < currentNode.data) {
-        lastNode = currentNode;
-        currentNode = currentNode.left;
-      } else if (value > currentNode.data) {
-        lastNode = currentNode;
-        currentNode = currentNode.right;
-      }
 
       if (value === currentNode.data) {
 
@@ -174,6 +169,15 @@ export default class Tree {
           }
           return;
         }
+      }
+
+      //compare value to currentNode. If smaller, go left. If bigger, go right.
+      if (value < currentNode.data) {
+        lastNode = currentNode;
+        currentNode = currentNode.left;
+      } else if (value > currentNode.data) {
+        lastNode = currentNode;
+        currentNode = currentNode.right;
       }
     }
   }
