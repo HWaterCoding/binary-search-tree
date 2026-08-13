@@ -198,17 +198,21 @@ export default class Tree {
     //a level order traversal is starting at the root go level by level left to right
     //for the binaryTree tree, 6, 3, 8, 1, 4, 7, 9, 5, 10, for example. Start at root and go level by level, left to right.
 
+
+
     // (create empty array to act as queue)
     // myQueue = [];
     // (push root node into queue)
     // myQueue.push(this.root);
+    // (take node out of queue)
+    // const node = myQueue.shift();
     // (Check the root for child nodes, and if they exist, add them to the queue)
-    // if(this.root.right !== null) {myQueue.push(this.root.right);
-    // if(this.root.left !== null) {myQueue.push(this.root.left)
+    // if(node.right !== null) {myQueue.push(node.right);
+    // if(node.left !== null) {myQueue.push(node.left)
     // (Then take the root Node out of the queue)
     // let node = myQueue.shift();
     // (call callback function on this node)
-    // node.callback()
+    // callback(node.data) <---- .data not just Node.
   }
 
 
