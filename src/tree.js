@@ -102,10 +102,6 @@ export default class Tree {
     let currentNode = this.root;
     let lastNode;
 
-    if (value === this.root.data) {
-      //add case if deleting root node (IT DOESN'T HAVE A PARENT, SO NO LASTNODE VARIABLE)
-    }
-
     //loop through the binary tree
     while (currentNode !== null) {
 
@@ -113,14 +109,19 @@ export default class Tree {
 
         //if the node being removed has no children
         if (currentNode.right === null && currentNode.left === null) {
+          //check if root node
+          if(currentNode === this.root){
+            this.root = null;
+            return;
+          }
+
           //verify if we are changing .left or .right to null value to remove node
           if (value > lastNode.data) {
             lastNode.right = null;
-            return;
           } else if (value < lastNode.data) {
             lastNode.left = null;
-            return;
           }
+          return;
         }
 
         //if the node being removed has 1 child
@@ -128,6 +129,16 @@ export default class Tree {
           (currentNode.right === null && currentNode.left !== null) ||
           (currentNode.left === null && currentNode.right !== null)
         ) {
+          //check if root node
+          if(currentNode === this.root){
+            if(currentNode.right !== null){
+              this.root = currentNode.right;
+            } else if(currentNode.left !== null){
+              this.root = currentNode.left;
+            }
+            return;
+          }
+
           if (value > lastNode.data) {
             //append whichever node is !null
             if (currentNode.left !== null) {
