@@ -8,13 +8,13 @@ const binaryTree = new Tree([3, 3, 9, 6, 1, 4, 7, 10, 8, 5]);
 // smallTree.prettyPrint();
 
 //includes()
-console.log(binaryTree.includes(6));
-// console.log(binaryTree.includes(17));
+console.log(binaryTree.includes(6)); //true
+console.log(binaryTree.includes(17)); //false
 
-//insert()
-// binaryTree.insert(2);
-// binaryTree.insert(0);
-// binaryTree.insert(7);
+//insert() new value
+binaryTree.insert(2);
+//insert() duplicate value
+binaryTree.insert(7);
 
 //no child deletion
 // binaryTree.deleteItem(10);
@@ -29,7 +29,16 @@ console.log(binaryTree.includes(6));
 //root node deletion
 // binaryTree.deleteItem(6);
 
-// console.log(binaryTree.root);
+//callback function for levelOrderForEach()
+function printValue(value){
+    console.log(value);
+}
+
+//levelOrderForEach() callback function
+binaryTree.levelOrderForEach(printValue);
+
+
+
 
 //print entire tree
 binaryTree.prettyPrint();

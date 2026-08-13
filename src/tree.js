@@ -194,25 +194,30 @@ export default class Tree {
 
   //next functions
   levelOrderForEach(callback){
-    //do a level order traversal on the entire tree
-    //a level order traversal is starting at the root go level by level left to right
-    //for the binaryTree tree, 6, 3, 8, 1, 4, 7, 9, 5, 10, for example. Start at root and go level by level, left to right.
 
-
+    if(!callback || typeof callback !== "function") {
+      throw new Error("Please pass in a callback function as the argument.")
+    }
+    if(this.root === null) return;
 
     // (create empty array to act as queue)
-    // myQueue = [];
+    const queue = [];
+
     // (push root node into queue)
-    // myQueue.push(this.root);
-    // (take node out of queue)
-    // const node = myQueue.shift();
-    // (Check the root for child nodes, and if they exist, add them to the queue)
-    // if(node.right !== null) {myQueue.push(node.right);
-    // if(node.left !== null) {myQueue.push(node.left)
-    // (Then take the root Node out of the queue)
-    // let node = myQueue.shift();
-    // (call callback function on this node)
-    // callback(node.data) <---- .data not just Node.
+    queue.push(this.root);
+
+    while(queue.length > 0){
+  
+      // (take node out of queue)
+      const node = queue.shift();
+  
+      // (call callback function on this node)
+      callback(node.data);
+  
+      // (Check the node for child nodes, and if they exist, add them to the queue)
+      if(node.left !== null) queue.push(node.left);
+      if(node.right !== null) queue.push(node.right);
+    }
   }
 
 
