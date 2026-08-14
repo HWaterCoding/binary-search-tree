@@ -274,22 +274,38 @@ export default class Tree {
   }
 
 
+  //distance from leaf node
   height(value){
-    //distance from leaf node
+    //first, loop through tree to find correct node.
+    //declare a counter variable
+    //once at correct node, resume loop to lowest leaf node.
+    //create while loop with condition that the currentNode not be null
+    //on eveyr node looped past, increment counter variable
+    //when while loop exits, return counter.
   }
 
+  //distance from root node
   depth(value){
-    //distance from root node
+    //declare a counter variable
+    //start at root node
+    //loop until desired "value" node is reached
+    //increment variable on every loop iteration
+    //once desired node is reached, return counter variable value
   }
 
   //check if the tree is balancced
   isBalanced(){
-    //check the depth of both subtrees and compare them?
+    //check the depth of both subtrees and compare them:
+
+    //pass in the bottom most leaf node of left tree and right tree into separate depth() calls.
+    //compare the return values of the depth of your left and right subtree
+    //if the height difference between them is > 1, return a value of (false). If it's <= 1, return true. 
   }
 
   //if the tree is not balanced, balance it.
   rebalance(){
     //create an array using a traversal method to gather values from the current tree
+    //(IF YOU USE IN-ORDER TRAVERSAL YOU DON'T EVEN NEED TO SORT ARRAY!) <-- although, buildTree() does that anyways.
     //re-call buildTree() function to rebuild the tree using the new array
   }
 }
