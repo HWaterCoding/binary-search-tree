@@ -75,6 +75,7 @@ export default class Tree {
 
     if (this.root === null) {
       this.root = newNode;
+      return;
     }
 
     //compare the "value" to the node being iterated on; if it's smaller, go left, if bigger, go right.
@@ -87,7 +88,7 @@ export default class Tree {
         currentNode = currentNode.left;
       } else if (value > currentNode.data) {
         if (currentNode.right === null) {
-          currentNode.left = newNode;
+          currentNode.right = newNode;
           return;
         }
         currentNode = currentNode.right;

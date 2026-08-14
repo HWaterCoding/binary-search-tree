@@ -13,6 +13,7 @@ console.log(binaryTree.includes(17)); //false
 
 //insert() new value
 binaryTree.insert(2);
+binaryTree.insert(12);
 //insert() duplicate value
 binaryTree.insert(7);
 
