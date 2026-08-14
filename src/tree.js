@@ -239,12 +239,26 @@ export default class Tree {
     traverse(this.root);
   }
 
+  //root --> left subtree --> right subtree
   preOrderForEach(callback){
-    //root --> left subtree --> right subtree
+    
   }
 
+  //left subtree --> right subtree --> root
   postOrderForEach(callback){
-    //left subtree --> right subtree --> root
+    if(!callback || typeof callback !== "function") {
+      throw new Error("Please pass in a callback function as the argument.")
+    }
+
+    function traverse(node){
+      if(node === null) return;
+
+      traverse(node.left);
+      traverse(node.right);
+      callback(node.data);
+    }
+
+    traverse(this.root);
   }
 
 
