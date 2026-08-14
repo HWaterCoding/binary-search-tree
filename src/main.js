@@ -39,9 +39,13 @@ function printValue(value){
 // binaryTree.levelOrderForEach(printValue);
 
 //inOrderForEach() traversal
-binaryTree.inOrderForEach(printValue);
+// binaryTree.inOrderForEach(printValue);
 
+//preOrderForEach() traversal
+// binaryTree.preOrderForEach(printValue);
 
+//postOrderForEach() traversal
+binaryTree.postOrderForEach(printValue);
 
 
 //print entire tree
