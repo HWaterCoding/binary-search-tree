@@ -45,7 +45,12 @@ function printValue(value){
 // binaryTree.preOrderForEach(printValue);
 
 //postOrderForEach() traversal
-binaryTree.postOrderForEach(printValue);
+// binaryTree.postOrderForEach(printValue);
+
+
+//height() function
+console.log(binaryTree.height(12));
+console.log(binaryTree.height(6));
 
 
 //print entire tree

@@ -276,12 +276,29 @@ export default class Tree {
 
   //distance from leaf node
   height(value){
-    //first, loop through tree to find correct node.
-    //declare a counter variable
-    //once at correct node, resume loop to lowest leaf node.
-    //create while loop with condition that the currentNode not be null
-    //on eveyr node looped past, increment counter variable
-    //when while loop exits, return counter.
+    if(!this.includes(value)) return undefined;
+
+    let currentNode = this.root;
+
+    //find the correct node
+    while(currentNode.data !== value){
+      if(currentNode.data > value){
+        currentNode = currentNode.left;
+      } else if(currentNode.data < value){
+        currentNode = currentNode.right;
+      }
+    }
+
+    function getHeight(node){
+      if(node === null) return -1;
+
+      const leftHeight = getHeight(node.left);
+      const rightHeight = getHeight(node.right);;
+
+      return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    return getHeight(currentNode);
   }
 
   //distance from root node
