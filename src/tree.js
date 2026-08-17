@@ -198,6 +198,8 @@ export default class Tree {
 
     if(!callback || typeof callback !== "function") {
       throw new Error("Please pass in a callback function as the argument.")
+    } else {
+      console.log("=== Level-Order Traversal ===");
     }
     if(this.root === null) return;
 
@@ -226,6 +228,8 @@ export default class Tree {
   inOrderForEach(callback){
     if(!callback || typeof callback !== "function") {
       throw new Error("Please pass in a callback function as the argument.")
+    } else {
+      console.log("=== In-Order Traversal ===");
     }
 
     function traverse(node){
@@ -243,6 +247,8 @@ export default class Tree {
   preOrderForEach(callback){
     if(!callback || typeof callback !== "function") {
       throw new Error("Please pass in a callback function as the argument.")
+    } else {
+      console.log("=== Pre-Order Traversal ===");
     }
 
     function traverse(node){
@@ -260,6 +266,8 @@ export default class Tree {
   postOrderForEach(callback){
     if(!callback || typeof callback !== "function") {
       throw new Error("Please pass in a callback function as the argument.")
+    } else {
+      console.log("=== Post-Order Traversal ===");
     }
 
     function traverse(node){

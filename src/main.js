@@ -67,13 +67,21 @@ binaryTree.insert(7);
 // ======= height + depth ======== //
 
 //height() function
-// console.log(binaryTree.height(77));
-// console.log(binaryTree.height(6));
+// console.log(binaryTree.height(77)); //undefined
+// console.log(binaryTree.height(6)); //4
 
 //depth() function
-console.log(binaryTree.depth(8));
-console.log(binaryTree.depth(12));
+// console.log(binaryTree.depth(8)); //1
+// console.log(binaryTree.depth(12)); //4
 
+
+// ====== balanced check + rebalance tree ======= //
+
+//check to see if current tree is balanced
+binaryTree.isBalanced();
+
+//rebalance function to rebalance the tree
+binaryTree.rebalance();
 
 
 //print entire tree
