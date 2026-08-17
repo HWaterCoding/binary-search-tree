@@ -1,24 +1,33 @@
 //entry point
 import Tree from "./tree.js";
 
+
+// ======= tree creation ======= //
+
 const binaryTree = new Tree([3, 3, 9, 6, 1, 4, 7, 10, 8, 5]);
 // const smallTree = new Tree([3, 7]);
-// smallTree.deleteItem(3);
-// smallTree.deleteItem(7);
-// smallTree.prettyPrint();
+
+
+// ======== node existence check ========= //
 
 //includes()
 console.log(binaryTree.includes(6)); //true
 console.log(binaryTree.includes(17)); //false
 
+
+// ======== node insertion ======== //
+
 //insert() new value
 binaryTree.insert(2);
 binaryTree.insert(12);
+
 //insert() duplicate value
 binaryTree.insert(7);
 
+
+// ======== node deletion ========= //
+
 //no child deletion
-// binaryTree.deleteItem(10);
 // binaryTree.deleteItem(7);
 
 //one child deletion
@@ -30,10 +39,17 @@ binaryTree.insert(7);
 //root node deletion
 // binaryTree.deleteItem(6);
 
-//callback function for levelOrderForEach()
-function printValue(value){
-    console.log(value);
-}
+//small tree node deletion
+// smallTree.deleteItem(3);
+// smallTree.deleteItem(7);
+
+
+// ========= tree traversals ========= //
+
+//callback function for traversals
+// function printValue(value){
+//     console.log(value);
+// }
 
 //levelOrderForEach() callback function
 // binaryTree.levelOrderForEach(printValue);
@@ -48,10 +64,18 @@ function printValue(value){
 // binaryTree.postOrderForEach(printValue);
 
 
+// ======= height + depth ======== //
+
 //height() function
-console.log(binaryTree.height(12));
-console.log(binaryTree.height(6));
+// console.log(binaryTree.height(77));
+// console.log(binaryTree.height(6));
+
+//depth() function
+console.log(binaryTree.depth(8));
+console.log(binaryTree.depth(12));
+
 
 
 //print entire tree
 binaryTree.prettyPrint();
+// smallTree.prettyPrint();

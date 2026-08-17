@@ -289,6 +289,7 @@ export default class Tree {
       }
     }
 
+    //recursive helper to get numeric height value for each side
     function getHeight(node){
       if(node === null) return -1;
 
@@ -303,11 +304,24 @@ export default class Tree {
 
   //distance from root node
   depth(value){
-    //declare a counter variable
+    if(!this.includes(value)) return undefined;
+
     //start at root node
+    let currentNode = this.root;
+    let counter = 0;
+
     //loop until desired "value" node is reached
-    //increment variable on every loop iteration
-    //once desired node is reached, return counter variable value
+    while(currentNode.data !== value){
+      if(currentNode.data > value){
+        currentNode = currentNode.left;
+        counter++;
+      } else if(currentNode.data < value){
+        currentNode = currentNode.right;
+        counter++;
+      }
+    }
+
+    return counter;
   }
 
   //check if the tree is balancced
