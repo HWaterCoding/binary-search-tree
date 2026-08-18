@@ -334,11 +334,31 @@ export default class Tree {
 
   //check if the tree is balancced
   isBalanced(){
-    //check the depth of both subtrees and compare them:
+    if(this.root === null) return true;
 
-    //pass in the bottom most leaf node of left tree and right tree into separate depth() calls.
-    //compare the return values of the depth of your left and right subtree
-    //if the height difference between them is > 1, return a value of (false). If it's <= 1, return true. 
+    function getHeight(node){
+      if(node === null) return -1;
+
+      const leftHeight = getHeight(node.left);
+      const rightHeight = getHeight(node.right);;
+
+      return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    function checkBalance(node){
+      if (node === null) return true;
+
+      const leftHeight = getHeight(node.left);
+      const rightHeight = getHeight(node.right);
+
+      if (Math.abs(leftHeight - rightHeight) > 1) {
+        return false;
+      }
+
+      return checkBalance(node.left) && checkBalance(node.right);
+    }
+
+    return checkBalance(this.root);
   }
 
   //if the tree is not balanced, balance it.

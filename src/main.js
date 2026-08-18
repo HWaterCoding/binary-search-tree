@@ -11,8 +11,8 @@ const binaryTree = new Tree([3, 3, 9, 6, 1, 4, 7, 10, 8, 5]);
 // ======== node existence check ========= //
 
 //includes()
-console.log(binaryTree.includes(6)); //true
-console.log(binaryTree.includes(17)); //false
+// console.log(binaryTree.includes(6)); //true
+// console.log(binaryTree.includes(17)); //false
 
 
 // ======== node insertion ======== //
@@ -78,12 +78,28 @@ binaryTree.insert(7);
 // ====== balanced check + rebalance tree ======= //
 
 //check to see if current tree is balanced
-binaryTree.isBalanced();
+console.log(binaryTree.isBalanced());
 
 //rebalance function to rebalance the tree
-binaryTree.rebalance();
+// binaryTree.rebalance();
 
 
 //print entire tree
 binaryTree.prettyPrint();
 // smallTree.prettyPrint();
+
+
+
+
+
+
+//driver script:
+//create getArray() function to produce a random array with each value < 100
+//create  abinary tree from the array
+//confirm the created tree is properly balanced with isBalanced()
+//print the tree in levelOrder, preOrder, postOrder, and inOrder.
+//unbalance the tree by adding many values > 100
+//confirm the tree is unbalanced with isBalanced()
+//rebalance() the tree
+//reconfirm the tree is balanced
+//and once again print all values in each traversal
