@@ -193,7 +193,7 @@ export default class Tree {
   }
 
 
-  //next functions
+  //traversal functions
   levelOrderForEach(callback){
 
     if(!callback || typeof callback !== "function") {
@@ -371,8 +371,8 @@ export default class Tree {
     function traverse(node){
       if(node === null) return;
 
-      array.push(node.data);
       traverse(node.left);
+      array.push(node.data);
       traverse(node.right);
     }
 
