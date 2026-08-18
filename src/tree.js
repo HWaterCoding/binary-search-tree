@@ -363,8 +363,22 @@ export default class Tree {
 
   //if the tree is not balanced, balance it.
   rebalance(){
+    if(this.root === null) return;
+
+    let array = [];
+
     //create an array using a traversal method to gather values from the current tree
-    //(IF YOU USE IN-ORDER TRAVERSAL YOU DON'T EVEN NEED TO SORT ARRAY!) <-- although, buildTree() does that anyways.
+    function traverse(node){
+      if(node === null) return;
+
+      array.push(node.data);
+      traverse(node.left);
+      traverse(node.right);
+    }
+
+    traverse(this.root);
+
     //re-call buildTree() function to rebuild the tree using the new array
+    this.root = this.#buildTree(array);
   }
 }

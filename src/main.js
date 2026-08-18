@@ -81,7 +81,7 @@ binaryTree.insert(7);
 console.log(binaryTree.isBalanced());
 
 //rebalance function to rebalance the tree
-// binaryTree.rebalance();
+binaryTree.rebalance();
 
 
 //print entire tree
