@@ -170,6 +170,7 @@ export default class Tree {
           currentNode.data = successorNode.data;
 
           //Is the successor the left child or right child of its parent?
+          //(right child if immediate root of right subtree)
           if(parentOfSuccessor.left === successorNode) {
             //the successor is the left child of the parent
             parentOfSuccessor.left = successorNode.right;
